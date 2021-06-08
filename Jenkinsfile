@@ -1,31 +1,31 @@
 pipeline {
   agent any
   tools{
-      maven ‘Maven 3.8.1’
+      maven 'Maven 3.6.3'
   }
   stages{
-      stage(“build”){
+      stage("build"){
           steps{
-              echo ‘compiling sysfoo app’
-              sh ‘mvn compile’
+              echo 'compiling sysfoo app'
+              sh 'mvn compile'
           }
       }
-      stage(“test”){
+      stage("test"){
           steps{
-              echo ‘running unit tests’
-              sh ‘mvn clean test’
+              echo 'running unit tests'
+              sh 'mvn clean test'
           }
       }
-      stage(“package”){
+      stage("package"){
           steps{
-              echo ‘packaging app into a war file’
-              sh ‘mvn package -DskipTests’
+              echo 'packaging app into a war file'
+              sh 'mvn package -DskipTests'
           }
       }
   }
   post{
     always{
-        echo ‘This pipeline is completed..’
+        echo 'This pipeline is completed..'
     }
   }
 }
